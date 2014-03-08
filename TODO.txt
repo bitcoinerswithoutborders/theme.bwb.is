@@ -1,0 +1,7 @@
+make menu 20% smaller
+
+minimap:
+whole inner page size, getrequest pages while scrolling the minimap
+
+if javascript:
+replace hover with click

@@ -1,0 +1,58 @@
+{% if menus %}
+  <div id="menu-container" class="top-right">
+    <div id="menu-trigger">
+      <a id="logo-link" href="/" rel="home">
+        {% if logo %}
+          <span id="logo" title="{% if logo_title %}{{ logo_title }}{% elseif logo_alt %}{{logo_alt}}{% else %}{{ bloginfo('name') }}{% endif %}">
+        {% else %}
+          {{bloginfo('name')}}
+        {% endif %}
+      </a>
+      <span class="trigger"></span>
+      <div id="bwb-border-top" class="bwb-border">
+        {% if menus.top.items %}
+          <nav class="access" role="navigation">
+            <ul class="left">
+              {% for item in menus.top.items %}
+                {% include 'menuitem.twig' %}
+              {% endfor %}
+            </ul>
+          </nav><!-- #access -->
+        {% endif %}
+      </div>
+      <div id="bwb-border-left" class="bwb-border">
+        {% if menus.left.items %}
+          <nav class="access" role="navigation">
+            <ul class="top">
+              {% for item in menus.left.items %}
+                {% include 'menuitem-icon.twig' %}
+              {% endfor %}
+            </ul>
+          </nav><!-- #access -->
+        {% endif %}
+      </div>
+      <div id="bwb-border-right" class="bwb-border">
+        {% if menus.right.items %}
+          <nav class="access" role="navigation">
+            <ul class="top">
+              {% for item in menus.right.items %}
+                {% include 'menuitem-icon.twig' %}
+              {% endfor %}
+            </ul>
+          </nav><!-- #access -->
+        {% endif %}
+      </div>
+      <div id="bwb-border-bottom" class="bwb-border">
+        {% if menus.bottom.items %}
+          <nav class="access" role="navigation">
+            <ul class="left">
+              {% for item in menus.bottom.items %}
+                {% include 'menuitem.twig' %}
+              {% endfor %}
+            </ul>
+          </nav><!-- #access -->
+        {% endif %}
+      </div>
+    </div>
+  </div>
+{% endif %}

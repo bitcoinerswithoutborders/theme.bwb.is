@@ -1,0 +1,28 @@
+<li id="menu-item-{{item.page.slug}}" class="{{item.class}} {{item.current ? 'custom-current-item-class'}}">
+  <a href="{{item.link}}">{{item.title}}</a>
+
+  {% if item.get_children %}
+    <ul class="nav-drop">
+    {% for child in item.get_children %}
+      <li class="nav-drop-item">
+        <a href="{{child.link}}">
+          {% if child.page.get_thumbnail %}
+          <img class="alignleft" src="{{child.page.thumbnail.src('thumbnail')}}" />
+          {% endif %}
+          <span class="name first">{{child.page.get_field('bwb_members_first_name')}}</span>
+          <span class="name last long">{{child.page.get_field('bwb_members_last_name')}}</span>
+          <span class="name last short">{{child.page.get_field('bwb_members_last_name')|first}}</span>
+        </a>
+        {% if false %}
+        <div class="profile">
+          <header>{{child.page.get_field('bwb_members_first_name')}} {{child.page.get_field('bwb_members_last_name')}}</header>
+          <div class="content">
+            {{child.page.get_preview(25)}}
+          </div>
+        </div>
+        {% endif %}
+      </li>
+    {% endfor %}
+    </ul>
+  {% endif %}
+</li>

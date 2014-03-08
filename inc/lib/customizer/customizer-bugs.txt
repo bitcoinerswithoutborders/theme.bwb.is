@@ -1,0 +1,112 @@
+
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+REWRITE THE WHOLE PREVIEW JAVASCRIPT
+it should only write css classes to the header instead of applying them to the elements!!!!
+
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+------------------------------------------------------------------------
+
+page customizer:
+show hide homepage header and content
+
+header background height independent from font height
+
+header menu:
+menu bar height (main and sub)
+
+menu bar height: double it.
+
+font sizes (main and sub)
+font sizes one pixel jumps between min and max
+
+text-align for:
+header-title,
+menu,
+content-header,
+content
+
+margins for:
+header,
+menu,
+content-header,
+header
+
+
+
+
+------------------------------------------------------------------------
+
+
+social media buttons:
+have:
+  always display buttons (top level) + one trigger key
+  sub menu buttons only display on hover (sub levels)
+
+social-links menu
+
+------------------------------------------------
+
+logo:
+  size, upload and position
+  standard pos in menu bar
+-------------------------------------------------
+
+slideshows:
+shortcode with arguments:
+content-type: members or news
+size: px
+type: slideshows, collection, others
+
+
+types: members, posts, whatever
+sort: date, category, title
+
+members are shown with their profile pic, higher menu n stuff.
+get variable height using slugs of menu items.
+add slugs to menu item markup for ^
+
+
+------------------------------------------
+
+menu admin interface for custom submenu structures:
+select menu item,
+add functionality
+
+------------------------------
+
+
+header image:
+2/3 height.
+
+
+
+--------------------------------------------------------------------
+
+breadcrumbs
+on top of page always visible when menu collapsed
+on top of menu visible when you reached the top/bottom level
+
+
+
+----------------------------------------------------------------------
+
+nice to have:
+
+widget positions:
+
+fade in from the side
+
+menu hides and shows when hovering out of screen
+
+-----------------------------------------------------------------------
+
+add to metabox for menu items:
+float left/right radio
+float children too checkbox
+
+
+------------------------------------------------------------------------
+nav menu add "center whole menu" setting to both menus,
+including a warning that this will disable custom settings of the menu items

@@ -1,0 +1,873 @@
+/*
+ //////////////////////////////////////////////////////////////////////////////////////////////////
+////////////////////-`  `-//-.--:///////////////////////////////////////////////////////////////////
+////////////////////.   .://.   -///////////////////////////////////////////////////////////////////
+////////////////////`   -:/:`   -///////////////////////////////////////////////////////////////////
+////////////:-......`   `.-``  `-//////////////////////////////////////////:.-::////////////////////
+/////////:-`                     ``.---:://///////////////////////////////:.   .//.```-/////////////
+/////////-`                            .://///////////////////////////////:.  `.//.   ./////////////
+////////:.       .::::::::-       `````://////////////////////////..--::::.   `-//.   ./////////////
+////////:.      .:///////:.      `////////////////////////////////`           ``.-`   .-////////////
+/////////-`     .-///////:`      `///////////////////////////////:.```                  ``.-:///////
+/////////:-      `.-::///:      `.///////////////////////////////////:.       `..``         `-://///
+//////:-```          `````      `-:::::://////////////////////////////.       -///:::.`       ./////
+/////-.                           `````...--:/---::///////////////////`      .:///////-`      `:////
+////:.       ``--:::::--`                   ./    ``````.-/-.-::::::::`      :////////-       .:////
+////.`       .//////////.      `..         `./          `-:.   ```````       -:::::::-.      `./////
+////.`       -//////////.      .::.       :::/-`      ``.::.                    ````        `-://///
+////:`       .::////////.      -:/-      `/////`      ::///:-      `.        `             `-://////
+/////-.        `..--::::`      :///`     `+////.      //////:     -:/      `.::::--.``       `-/////
+//////:.``           ``        ////`     `/////-`     /////:-    .:/:      `:///////::.       `.////
+/////////:--.``               `////`      -:///.`     :////.    `//:-      .//////////:-       `////
+////////////:::.   ``.`    ```.////`      `://:`      -://-`   `-//:.      .//////////-`       `////
+//////////////:`   :///    //::////.`     `://`       `-//`   `-///-`      `..--::--..`       `-////
+//////////////:    :/::   `////////-`     `:/:         -:.    -:///-            ``           `-/////
+///////////////--..//:.  `.////////:.      :-          -:    `:////:--`                    `-://////
+//////////////////////::::://///////.      -.  ``      ``   `:///////:`   -::`   ``.`...-:::////////
+////////////////////////////////////-          ::.         `.////////-`   -//    ://////////////////
+////////////////////////////////////-         -:/:         .:////////-`  `://    ://////////////////
+////////////////////////////////////-`       `///:        .://///////::-.-://.```///////////////////
+////////////////////////////////////-.      .:////        :///////////////////:::///////////////////
+////////////////////////////////////:-```` `-/////      `-//////////////////////////////////////////
+///////////////////////////////////////::::://////.```  `///////////////////////////////////////////
+ //////////////////////////////////////////////////////////////////////////////////////////////////
+*/
+
+/*
+Function Declarations first, these will be moved into the customizer options and passed through less later.
+*/
+.transition-delay(@style) {
+  -webkit-transition-delay: @style;
+  -moz-transition-delay: @style;
+  -o-transition-delay: @style;
+  transition-delay: @style;
+}
+.transition(@style) {
+  -webkit-transition: @style;
+  -moz-transition: @style;
+  -o-transition: @style;
+  transition: @style;
+}
+.transition(@style, @style2) {
+  -webkit-transition: @style, @style2;
+  -moz-transition: @style, @style2;
+  -o-transition: @style, @style2;
+  transition: @style, @style2;
+}
+.transition(@style, @style2, @style3) {
+  -webkit-transition: @style, @style2, @style3;
+  -moz-transition: @style, @style2, @style3;
+  -o-transition: @style, @style2, @style3;
+  transition: @style, @style2, @style3;
+}
+.transition(@style, @style2, @style3, @style4) {
+  -webkit-transition: @style, @style2, @style3, @style4;
+  -moz-transition: @style, @style2, @style3, @style4;
+  -o-transition: @style, @style2, @style3, @style4;
+  transition: @style, @style2, @style3, @style4;
+}
+.user-select(@set) {
+  -webkit-user-select: @set;
+  -moz-user-select: @set;
+  -o-user-select: @set;
+  user-select: @set;
+}
+.transform(@trans) {
+  -webkit-transform: @trans;
+  -moz-transform: @trans;
+  transform: @trans;
+}
+
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+  box-sizing: border-box;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+  display: block;
+}
+body {
+  line-height: 1;
+}
+ol, ul {
+  list-style: none;
+}
+blockquote, q {
+  quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+  content: '';
+  content: none;
+}
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+
+/***********************************8
+ * Custom Styles
+ */
+
+@font-face { 
+  font-family: ubuntu; 
+  src: url('/c/themes/bwb/inc/font/Ubuntu-R.woff'); 
+}
+
+body {
+  background-color: #666;
+  color: white;
+  font-size: 15px;
+  min-width: 270px;
+  margin: 0;
+  height: 100%;
+  width: 100%;
+  font-family: ubuntu, sans-serif;
+  text-align: left;
+  min-width: 260px;
+  line-height: 1.5em;
+}
+
+
+h1 {
+  font-size: 1.2em;
+  margin: 0 0 0.3em;
+}
+
+body a {
+  color: @primarycolor;
+  text-decoration: none;
+  .transition(color 0.3s);
+}
+
+body #wrapper a:hover {
+  color: @textcolor;
+}
+
+#wrapper {
+  background-color: #666;
+  border-radius: 6px;
+  display: inline-block;
+  padding: 1em 3em 3em;
+  background-size: cover;
+  width: 100%;
+  height: 100%;
+}
+
+  #container {    
+    position: relative;
+    display: inline-block;
+  }
+
+  #logo-link {
+    position: fixed;
+    left: 0;
+    top: 0;
+    z-index: 10;
+  }
+
+  #logo {
+    background: url(/static/sites/3/2014/03/lab_logos02.png);
+    height: 2.1em;
+    width: 2.1em;
+    display: inline-block;
+    background-size: cover;
+    left: 0.5em;
+    position: absolute;
+    z-index: 10;
+    top: 0.5em;
+    background-position: -36px 0;
+  }
+  #logo:hover {
+    background-position: 0 0;
+  }
+
+  #branding {
+    display: inline-block;
+    vertical-align: top;
+  }
+  #tagline {
+    font-size: 0.8em;
+    margin: 0.4em 0 1em 3px;
+    text-align: left;
+  }
+  
+
+  .disclaimer {
+    font-size: 0.8em;
+  }
+
+  video#player {
+    margin: 2% auto 1%;
+    max-height: 70%;
+    max-width: 100%;
+    border-radius: 6px;
+    z-index: 0;
+  }
+
+
+a#busy {
+  display: block;
+}
+
+a#busy span {
+  display: block;
+  font-size: 0.8em;
+  margin: 1em 0;
+}
+
+a#busy img {
+  max-width:240px;
+  width: 100%;
+  text-align: center;
+}
+
+a#busy:hover img {
+  opacity: 0.8em;
+}
+
+
+#keep-calm {
+  height: 511px;
+  margin: 2% auto 1%;
+  border-radius: 5px;
+}
+
+#mission {
+  background-color: @primarycolor;
+  border-radius: 5px;
+  height: 511px;
+  width: 440px;
+  padding: 1em;
+}
+
+#mission div {
+  font-size: 0.7em;
+  margin: 1em 0 0;
+  text-align: justify;
+  line-height: 1.3em;
+}
+
+#mission p {
+  margin: 2em 0 0;
+}
+
+#mission a {
+  color: @secondarycolor;
+}
+
+#mission a:hover {
+  color: @textcolor;
+}
+
+#busy {
+  margin: 0.5em 0;
+  font-size: 0.8em;
+}
+
+section#content {
+  margin: 1em 0;
+}
+
+section#content h1 {
+  margin: 0 0 1em;
+}
+
+.alignleft {
+  margin: 0 0.5em 0.5em 0;
+  float: left;
+}
+
+
+/********************************
+ * Menu Container Styles
+ */ 
+
+#menu-container {
+  position: fixed;
+  height: 0;
+  border-width: 0px;
+  border-style: solid;
+  border-color: #333;
+  background-color: rgba(0,0,0,0);
+  width: 90px;
+  height: 50px;
+  z-index: 1;
+}
+
+#menu-container.top-left {
+  top: 0;
+  left: 0;
+  
+  .trigger {
+    left: 0.7em;
+    top: 1.4em;
+  }
+}
+#menu-container.top-right {
+  top: 0;
+  right: 0;
+
+  .trigger {
+    right: 0.7em;
+    top: 1.4em;
+  }
+}
+#menu-container.bottom-left {
+  bottom: 0;
+  left: 0;
+  top: auto;
+
+  .trigger {
+    left: 0.7em;
+    top: 1.4em;
+  }
+}
+#menu-container.bottom-right {
+  bottom: 0;
+  right: 0;
+  top: auto;
+
+  .trigger {
+    right: 0.7em;
+    top: 1.4em;
+  }
+}
+
+.no-js #menu-container:hover {
+  display: block;
+  opacity: 1;
+  height: 50px;
+  bottom: 0;
+}
+
+#menu-trigger {
+  display: block;
+  width: 100%;
+}
+
+#menu-trigger span.trigger {
+  position: fixed;
+  display: block;
+  width: 2em;
+  height: 0.3em;
+  background-color: #fff;
+  z-index: 2;
+  .transition(background-color 0.1s);
+  .user-select(none);
+}
+
+
+#menu-container:hover #menu-trigger span.trigger { 
+  background-color: transparent;
+}
+
+#menu-trigger span.trigger:before,
+#menu-trigger span.trigger:after {
+  position: absolute;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: @textcolor;
+  content: '';
+  .transition(all 0.3s);
+}
+
+#menu-trigger span.trigger:before {
+  .transform(translateY(-250%));
+}
+
+#menu-trigger span.trigger:after {
+  .transform(translateY(250%));
+}
+
+#menu-container:hover #menu-trigger span.trigger:before {
+  .transform(translateY(0) rotate(45deg));
+}
+
+#menu-container:hover #menu-trigger span.trigger:after {
+  .transform(translateY(0) rotate(-45deg));
+}
+
+#menu-trigger nav {
+  height: 0;
+  position: fixed;
+  width: 100%;
+  z-index: 1;
+  line-height: 3em;
+  .transition(height 0.3s, width 0.3s);
+}
+
+
+
+/***********************************************************************
+ * Border Menu styles:
+ */ 
+
+#menu-container li a {
+  color: @menutextcolor;
+}
+
+#menu-container li:hover > a {
+  color: @menutexthovercolor;
+}
+
+.bwb-border {
+  position: fixed;
+  background-color: @menubgcolor;
+
+  ul {  
+    position: absolute;
+    margin: 0;
+  }
+
+  nav > ul > li {
+    position: relative;
+  }
+
+  ul li a {
+    font-size: 1.1em;
+  }
+
+  ul li a i {
+    font-size: 1.5em;
+  }
+}
+
+.nav-drop {
+  overflow: hidden;
+  position: fixed;
+  background-color: @menubgcolor;
+  .transition(height 0.1s);
+}
+
+/***********************************************************************
+ * Top and Bottom Menu Styles
+ */
+
+#bwb-border-top {
+  top: -1em;
+  border-bottom: 1em solid transparent;
+  .transition(all 0.3s);
+}
+
+#bwb-border-bottom {
+  bottom: -1em;
+  border-top: 1em solid transparent;
+  .transition(all 0.3s);
+}
+
+#menu-container:hover {
+  #bwb-border-bottom {
+    bottom: 0;
+  }
+
+  #bwb-border-top {
+    top: 0;
+  }
+
+  #bwb-border-bottom,
+  #bwb-border-top {
+    height: 3em;
+    background-color: @menubgcolor;
+    border: 0 none transparent;
+    .transition(all 0.3s);
+
+    nav {
+      height: 3em;
+    }
+  }
+}
+
+#bwb-border-top > nav > ul > li {
+  top: -3em;
+  .transition(top 0.5s);
+}
+#menu-container:hover #bwb-border-top > nav > ul > li {
+  top: 0;
+}
+#bwb-border-bottom > nav > ul > li {
+  bottom: -3em;
+  .transition(bottom 0.5s);
+}
+#menu-container:hover #bwb-border-bottom > nav > ul > li {
+  bottom: 0;
+}
+
+#bwb-border-top .nav-drop {
+  top: 3em;
+  margin: 0 0 1em 1em;
+}
+#bwb-border-bottom .nav-drop {
+  bottom: 3em;
+  margin: 1em 0 0 1em;
+}
+
+#bwb-border-bottom,
+#bwb-border-top {
+  left: 0;
+  width: 100%;
+  height: 1em;
+  .transition(height 0.3s);
+
+  ul {
+    position: fixed;
+    padding: 0 3em;
+    display: block;
+    width: 100%;
+    height: 0;
+    top: 0;
+    height: 3em;
+  }
+  ul.left {
+    text-align: left;
+  }
+  ul.right {
+    text-align: right;
+  }
+
+  .access {
+    li {
+      display: inline-block;
+      padding: 0 0.8em 0 0;
+      height: 100%;
+    }
+  }
+
+  .nav-drop {
+    height: 0;
+    left: 0;
+    padding: 0 3em;
+    width: 100%;
+    text-align: center;
+    
+    .nav-drop-item {
+      line-height: 1em;
+      margin: 0;
+      height: auto;
+      text-align: left;
+      float: left;
+    }
+
+    header, .job, .name {
+      margin: 0 0 0.5em;
+      font-size: 0.8em;
+      line-height: 0.8em;
+      display: block;
+    }
+  }
+
+  li:hover {
+    .nav-drop {
+      height: 3em;
+    }
+  }
+
+  #menu-item-people li {
+    width: 10%;
+    min-width: 140px;
+
+    span.name.short {
+      display: none;
+    }
+  }
+
+  .nav-sub-page {
+    height: 0;
+    background-color: @menubgcolor;
+    position: fixed;
+    overflow: hidden;
+    left: 3em;
+    margin: 0;
+    width: 91%;
+    padding: 0 1em;
+    bottom: 6em;
+  }
+
+  .nav-drop-item:hover .nav-sub-page {
+    height: 5em;
+    padding: 1em;
+  }
+}
+
+
+
+/***********************************************************************
+ * Left and Right Menu Styles
+ */
+
+
+#bwb-border-left {
+  left: -1em;
+  border-right: 1em solid rgba(0,0,0,0);
+}
+#bwb-border-right {
+  right: -1em;
+  border-left: 1em solid rgba(0,0,0,0);
+}
+
+#menu-container:hover {
+  #bwb-border-left {
+    left: 0;
+  }  
+  #bwb-border-right {
+    right: 0;
+  }
+  #bwb-border-left,
+  #bwb-border-right {
+    width: 3em;
+    background-color: @menubgcolor;
+    border: 0 none @menutextcolor;
+    .transition(left 0.3s);
+  }
+}
+
+#bwb-border-left,
+#bwb-border-right {
+  width: 1em;
+  height: 100%;
+  z-index: 1;
+  bottom: 0;
+  .transition(width 0.3s, border-width 0.3s ease-in 0.1s );
+
+  ul {
+    text-align: center;
+    position: fixed;
+    width: 3em;
+    .transition(left 0.3s);
+  }
+
+  
+  ul.top {
+    top: 3em;
+  }
+  ul.bottom {
+    bottom: 3em;
+  }
+
+  nav {
+    height: 100%;
+    bottom: 3em;
+    left: 0;
+    width: 0;
+  }
+
+  li:hover {
+    .nav-drop {
+      width: 3em;
+    }
+  }
+
+  ul li i {
+    margin: 0 0 0 0.25em;
+  }
+}
+
+
+#bwb-border-right > nav > ul > li {
+  right: -3em;
+  .transition(right 0.5s);
+}
+#menu-container:hover #bwb-border-right > nav > ul > li {
+  right: 0;
+}
+#bwb-border-left > nav > ul > li {
+  left: -3em;
+  .transition(left 0.5s);
+}
+#menu-container:hover #bwb-border-left > nav > ul > li {
+  left: 0;
+}
+
+
+/***********************************************************************
+ * Footer Styles, Various, CLEAN UP!
+ */ 
+
+footer.main {
+  bottom: 1em;
+  position: fixed;
+  right: 0.5em;
+}
+
+.read-more {
+  font-size: 0.8em;
+}
+
+#menu-item-people:hover {
+  ul.nav-drop {
+    height: 3.5em;
+  }
+}
+
+.icon-metalab {
+  background-image: url(/static/sites/3/2014/03/lab_logos.png) !important;
+  height: 25px !important;
+  width: 15px !important;
+  background-position: 0 0 !important;
+  background-size: cover !important;
+  display: block !important;
+  margin: 0 auto !important;
+}
+.icon-metalab:hover {
+  background-position: -20px 0 !important;
+}
+
+/*
+#wpadminbar {
+  position: fixed;
+  bottom: 0;
+  top: auto;
+}
+*/
+
+
+/***********************************************************************
+ * Page Width dependant settings
+ */ 
+
+@media screen and (max-width: 1235px) {
+  #menu-item-people:hover ul.nav-drop {
+    height: 9em;
+  }
+}
+
+@media screen and (max-width: 900px) {
+  body {
+    font-size: 14px;
+  }
+}
+@media screen and (max-width: 800px) {
+  body {
+    font-size: 13px;
+  }
+  #menu-item-people:hover ul.nav-drop {
+    height: 10em;
+  }
+}
+
+@media screen and (max-width: 700px) {
+  body {
+    font-size: 12px;
+    line-height: 12px;
+  }
+  #logo {
+    height: 2.5em;
+  }
+  #bwb-border-top,
+  #bwb-border-bottom {
+    #menu-item-people ul.nav-drop li {
+      min-width: 120px;
+      font-size: 0.9em;
+    }
+  }
+}
+
+@media screen and (max-width: 600px) {
+  body {
+    font-size: 12px;
+    line-height: 12px;
+  }
+
+  header #branding {
+    text-align: center;
+  }
+}
+
+@media screen and (max-width: 550px) {
+  #menu-item-people:hover ul.nav-drop {
+    height: 14em;
+  }
+  #bwb-border-top,
+  #bwb-border-bottom {
+    #menu-item-people ul.nav-drop li {
+      min-width: 100px;
+    }
+  }
+  #menu-item-people ul.nav-drop li span.name.short {
+    display: block !important;
+  }
+  #menu-item-people ul.nav-drop li span.name.long {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 460px) {
+  #menu-item-people:hover ul.nav-drop {
+    height: 15em;
+  }
+}
+
+@media screen and (max-width: 420px) {
+  #menu-item-people:hover ul.nav-drop {
+    height: 20em;
+    li {
+      float: none;
+    }
+  }
+}
+
+@media screen and (max-width: 380px) {
+  body {
+    font-size: 12px;
+    line-height: 12px;
+  }
+  h1 {
+    margin: 0.8em 0;
+  }
+  .disclaimer div {
+    width: 200px;
+    margin: 0 auto;
+  }
+  #bwb-border-top, 
+  #bwb-border-bottom {
+    #menu-item-people {
+      ul.nav-drop li {
+        min-width: 100px;
+      }
+    }
+  }
+  #menu-item-home {
+    display: none !important;
+  }
+  li.nav-drop-item span.name.last.long {
+    display: none !important;
+  }
+  li.nav-drop-item span.name.last.short {
+    display: block !important;
+  }
+}
+
+
+/***********************************************************************
+ * Revolution Slider helper styles
+ */
+.rev_slider_wrapper {
+  z-index: 0;
+  position: fixed;
+  top: 0;
+  left: 0;
+}

@@ -1,0 +1,5 @@
+Slideshows:
+
+handle content types:
+  video, image or slideshow (of images of videos (playlist of videos (playlist overlay))
+

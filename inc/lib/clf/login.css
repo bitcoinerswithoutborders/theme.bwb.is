@@ -1,0 +1,40 @@
+body.login #login {
+  margin: 0 auto;
+  width: 372px;
+  text-align: center;
+}
+
+body.login div#login h1 a {
+  background-image: url(/c/themes/bwb/inc/img/bwb-login-logo.png);
+  padding-bottom: 30px;
+  text-indent: -9999px;
+  display: block;
+  background-repeat: no-repeat;
+  width: 372px;
+  height: 102px;
+  margin: 0 auto;
+}
+
+form#loginform {
+  margin: 0 auto;
+  display: block;
+  width: auto;
+}
+
+body.login div#login form#loginform input {
+  width: 180px;
+  font-size: 20px;
+  background-color: #f99d1c !important;
+}
+
+#nav, #backtoblog {
+  margin: 0 auto;
+}
+
+a {
+  color: #f99d1c;
+}
+
+a:hover {
+  color: #676766;
+}

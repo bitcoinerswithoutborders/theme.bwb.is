@@ -1,0 +1,8 @@
+/*
+  * hide all info text fields
+  * 
+  * this is an hack, that adds text field settings to the customizer to get info fields.
+*/
+input[type="text"][value="hide"] {
+  display: none;
+}
