@@ -1,4 +1,4 @@
-wp.bwb.is
+theme.bwb.is
 =========
 
-Our Wordpress install, including all files excluding the wp-config.php.
+Our Wordpress theme, wip so dont use yet please.
